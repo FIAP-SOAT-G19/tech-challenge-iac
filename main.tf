@@ -23,8 +23,7 @@ module "eks" {
 }
 
 module "dynamo" {
-  source     = "./modules/dynamo-database"
-  table_name = "users"
+  source = "./modules/dynamo-database"
 }
 
 module "sqs" {

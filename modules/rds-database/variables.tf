@@ -3,11 +3,6 @@ variable "region" {
   default     = "us-east-1"
 }
 
-variable "project_name" {
-  description = "The name of the project"
-  default     = "dbpostgres"
-}
-
 variable "vpc_id" {
   description = "The VPC ID"
   type        = string

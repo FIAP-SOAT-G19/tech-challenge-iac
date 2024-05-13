@@ -1,9 +1,8 @@
-name: Build
+name: Pipeline
 on:
   push:
     branches:
       - main
-      - feat/create-infra
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
@@ -20,6 +19,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
   deploy:
+    name: Deploy
     runs-on: ubuntu-latest
 
     steps:

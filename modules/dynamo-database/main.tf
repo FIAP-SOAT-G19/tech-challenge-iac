@@ -1,12 +1,25 @@
 resource "aws_dynamodb_table" "users" {
-  name           = var.table_name
+  name           = "users"
   billing_mode   = "PROVISIONED"
   read_capacity  = var.read_capacity
   write_capacity = var.write_capacity
-  hash_key       = var.hash_key_and_atribute_name
+  hash_key       = "cpf"
 
   attribute {
-    name = var.hash_key_and_atribute_name
+    name = "cpf"
+    type = "S"
+  }
+}
+
+resource "aws_dynamodb_table" "production" {
+  name           = "production"
+  billing_mode   = "PROVISIONED"
+  read_capacity  = var.read_capacity
+  write_capacity = var.write_capacity
+  hash_key       = "orderNumber"
+
+  attribute {
+    name = "orderNumber"
     type = "S"
   }
 }
