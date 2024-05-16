@@ -30,17 +30,17 @@ output "rds_orders_port" {
 
 output "rds_paymnents_name" {
   description = "RDS instance name"
-  value       = aws_db_instance.rds_paymnents.db_name
+  value       = aws_db_instance.rds_payments.db_name
 }
 
 output "rds_paymnents_address" {
   description = "RDS instance address"
-  value       = aws_db_instance.rds_paymnents.address
+  value       = aws_db_instance.rds_payments.address
 }
 
 output "rds_paymnents_port" {
   description = "RDS instance port"
-  value       = aws_db_instance.rds_paymnents.port
+  value       = aws_db_instance.rds_payments.port
 }
 
 output "rds_products_name" {
