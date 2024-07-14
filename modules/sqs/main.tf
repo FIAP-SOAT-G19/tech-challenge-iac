@@ -117,3 +117,33 @@ resource "aws_sqs_queue_policy" "update_order_sqs_policy" {
   queue_url = aws_sqs_queue.update_order.id
   policy    = data.aws_iam_policy_document.update_sqs_policy.json
 }
+
+data "aws_iam_policy_document" "cancel_sqs_policy" {
+  statement {
+    effect = "Allow"
+
+    principals {
+      type        = "AWS"
+      identifiers = ["*"]
+    }
+
+    actions = [
+      "sqs:SendMessage",
+      "sqs:ReceiveMessage"
+    ]
+    resources = [
+      aws_sqs_queue.cancel_order.arn
+    ]
+  }
+}
+
+resource "aws_sqs_queue" "cancel_order" {
+  name                        = "cacel_order.fifo"
+  fifo_queue                  = true
+  content_based_deduplication = true
+}
+
+resource "aws_sqs_queue_policy" "cancel_order_sqs_policy" {
+  queue_url = aws_sqs_queue.cancel_order.id
+  policy    = data.aws_iam_policy_document.cancel_sqs_policy.json
+}
