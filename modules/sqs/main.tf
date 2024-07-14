@@ -138,7 +138,7 @@ data "aws_iam_policy_document" "cancel_sqs_policy" {
 }
 
 resource "aws_sqs_queue" "cancel_order" {
-  name                        = "cacel_order.fifo"
+  name                        = "cancel_order.fifo"
   fifo_queue                  = true
   content_based_deduplication = true
 }
