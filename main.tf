@@ -22,10 +22,10 @@ module "eks" {
   serviceaccount_name = "aws-iam-serviceaccount"
 }
 
-module "dynamo" {
+/* module "dynamo" {
   source = "./modules/dynamo-database"
 }
 
 module "sqs" {
   source = "./modules/sqs"
-}
+} */
